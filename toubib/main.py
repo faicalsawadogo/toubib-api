@@ -1,5 +1,6 @@
 from datetime import date
 from importlib.metadata import version
+from fastapi.middleware.cors import CORSMiddleware
 
 import fastapi_sqla
 from fastapi import Depends, FastAPI, HTTPException, status
@@ -17,6 +18,15 @@ app = FastAPI(title="toubib", version=version("toubib"))
 
 fastapi_sqla.setup(app)
 
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/health")
 def health():
