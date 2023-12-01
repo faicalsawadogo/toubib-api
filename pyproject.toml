@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "toubib"
+version = "0.1.0"
+description = "Simple EMR"
+authors = ["Hackers <hackers@dialogue.co>"]
+
+[tool.poetry.dependencies]
+python = "^3.10.0"
+fastapi = "^0.75"
+fastapi-sqla = "^2.3"
+SQLAlchemy = "^1.4"
+alembic = "^1.7"
+email-validator = "^1.1"
+Hypercorn = "^0.13"
+structlog = "^21"
+psycopg2-binary = "^2.9"
+
+[tool.poetry.dev-dependencies]
+black = "^22.0"
+pylama = "^8.3"
+isort = "^5.10"
+pytest = "^7.1"
+pytest-asyncio = "^0.18"
+pytest-cov = "^3.0"
+httpx = "^0.22"
+asgi-lifespan = "^1.0"
+Faker = "^8.4.0"
+pdbpp = "^0.10.3"
+pytest-watch = "^4.2.0"
+
+[build-system]
+requires = ["poetry-core>=1.1.13"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+exclude = '.vscode|.eggs|venv'
+
+[tool.isort]
+profile = "black"
+
+[tool.coverage.report]
+skip_covered = "true"
